@@ -1,0 +1,4 @@
+运行命令：
+mvn:jetty run
+数据库密码修改：
+src/main/java/jdbcConn.properties

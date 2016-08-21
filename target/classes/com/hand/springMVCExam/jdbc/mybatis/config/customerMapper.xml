@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.hand.springWebProj.bean.Customer">
+	<resultMap type="Customer" id="queryCustomerMap">
+		<id column="customer_id" property="customer_id"/>
+		<result column="first_name" property="first_name"/>
+		<result column="last_name" property="last_name"/>
+		<result column="email" property="email"/>
+		<result column="address" property="address"/>
+		<result column="last_update" property="last_update"/>
+	</resultMap>
+	<select id="getUserByName" resultType="int">
+		<![CDATA[
+			select count(customer_id) from customer where first_name=LOWER(#{firstName})
+		]]>
+	</select>
+	
+	<select id="getCustomerPagination" resultMap="queryCustomerMap">
+		<![CDATA[
+			select customer_id,first_name,last_name,email,address, c.last_update from customer c,address a 
+			where c.address_id=a.address_id
+			and customer_id limit #{offset},#{limit}
+		]]>
+	</select>
+	
+	<select id="getAllCustomer" resultMap="queryCustomerMap">
+		<![CDATA[
+			select customer_id,first_name,last_name,email,address, last_update from customer c,address a 
+			where c.address_id=a.address_id
+			and customer_id limit #{offset},#{limit}
+		]]>
+	</select>
+	
+	<insert id="addCustomer" parameterType="Customer">
+		<![CDATA[
+			insert into customer (first_name,last_name,email,address_id)values(#{first_name},#{last_name},#{email},#{address_id});
+		]]>
+	</insert>
+	<delete id="deleteCustomerById" parameterType="int">
+		<![CDATA[
+			delete from customer where customer_id=#{customer_id}
+		]]>
+	</delete>
+	
+	<delete id="deletePaymentByCustomerId" parameterType="int">
+ 		<![CDATA[
+ 			delete from payment where customer_id=#{customer_id}
+ 		]]>
+ 	</delete>
+ 	<delete id="deleteRentalByCustomerId" parameterType="int">
+ 		<![CDATA[
+ 			delete from rental where customer_id=#{customer_id}
+ 		]]>
+ 	</delete>
+</mapper>

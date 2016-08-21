@@ -1,0 +1,63 @@
+.top{
+	font-size: 20px;
+    height: 33px;
+    padding: 3px 0;
+    background-color: #15c0dc
+}
+.topLeft{
+    display: inline-block;
+}
+.topRight{
+	display: inline-block;
+    float: right;
+    margin-right: 30px;	
+}
+.main{
+	
+}
+
+.left{
+	display: inline-block;
+    margin-top: initial;
+    top: 34px;
+    position: absolute;
+    width: 30%;
+    border-right: #f1eaea 2px solid;
+    height: 100%;
+    left: 0px;
+}
+
+.linkStyle{
+	
+}
+.linkButton{
+    background-color: white;
+    border: none;
+    width: 84%;	
+}
+
+
+.right{
+	display: inline-block;
+    width: 70%;
+    margin-left: 30%;
+}
+.rightTop{
+	border-bottom: #c7c4c4 2px solid;
+    font-size: 25px;
+    color: #350d0d;
+    font-weight: 600;
+}
+.create{
+	float: right;
+    margin-top: -30px;
+    margin-right: 20%;
+    background-color: #83c6e6;	
+}
+.rightmain{
+	
+}
+.page{
+	float: right;
+    margin-right: 10%;
+}

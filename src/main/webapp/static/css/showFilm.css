@@ -1,0 +1,47 @@
+
+.link{
+	color: white;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: #929280;
+}
+.tableTitle{
+	border: gray 1px solid;
+    background-color: #789847;
+    height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+.paginationDiv{
+	margin-top: 80px;
+    text-align: center;
+}
+.pagebutton{
+	border: #a29b9b 2px solid;
+    height: 30px;
+    text-align: center;
+    width: 80px;
+    padding-top: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #d6d6be;
+    display: inline-block;
+}
+.currentPageInput{
+    width: 35px;
+    height: 31px;
+    margin-top: -10px
+}
+.pagebutton.cunrentPage{
+	width: 50px;
+    border: #a29b9b 1px solid;
+    padding-right: 0px;
+}
+.cunrrentDiv{
+	display: inline-block;
+    width: 62px;
+    float: left;
+    margin-left: 10px;
+	
+}

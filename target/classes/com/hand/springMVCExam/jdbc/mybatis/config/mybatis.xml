@@ -1,0 +1,16 @@
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+     "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<mappers>
+		<mapper
+			resource="classpath:com/hand/springWebProj/jdbc/mybatis/config/customerMapper.xml" />
+		<mapper
+			resource="classpath:com/hand/springWebProj/jdbc/mybatis/config/filmMapper.xml" />
+		<mapper
+			resource="classpath:com/hand/springWebProj/jdbc/mybatis/config/inventoryMapper.xml" />
+		<mapper
+			resource="classpath:com/hand/springWebProj/jdbc/mybatis/config/languageMapper.xml" />
+		<mapper
+			resource="classpath:com/hand/springWebProj/jdbc/mybatis/config/rentalMapper.xml"></mapper>
+	</mappers>
+</configuration>

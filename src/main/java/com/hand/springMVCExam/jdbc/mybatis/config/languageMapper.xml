@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.hand.springWebProj.bean.Language">
+	<resultMap type="Language" id="languageMap">
+		<id column="language_id" property="language_id"/>
+		<result column="name" property="name"/>
+		<result column="last_update" property="last_update"/>
+	</resultMap>
+	<select id="getLanguageByName" resultType="Language">
+		<![CDATA[
+			select * from language where name=LOWER(#{name})
+		]]>
+	</select>
+	<select id="selectAllLanguage" resultMap="languageMap">
+	<![CDATA[
+			select * from language
+		]]>
+	</select>
+</mapper>

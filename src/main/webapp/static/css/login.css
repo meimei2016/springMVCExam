@@ -1,0 +1,79 @@
+.main{
+background-image: url(../img/pg1.jpg);
+}
+.topDiv{
+	font-size: 25px;
+    font-weight: 600;
+}
+.hrLine{
+    height: 2px;
+    border-top: 3px solid #525050;
+    margin-top: -5px;
+}
+.mainDiv{
+	width: 50%;
+    border: #6a756a 1px solid;
+    margin-left: 25%;
+    margin-top: 80px;
+    height: 250px;
+    background-color: #e2efe1;
+}
+.formTop{
+	height: 40px;
+    font-size: 20px;
+    color: #021227;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.formMain{
+	width: 80%;
+    margin-left: 4%;
+    margin-top: 40px;
+	
+}
+.loginInput_div{
+	display: inline-block;
+    height: 40px;
+    margin-bottom: 30px;
+    margin-left: 5%;
+    width: 90%;
+    text-align: left;
+}
+.hidden_input{
+	visibility: hidden;
+    border-radius: 6px;
+    text-align: left;
+    
+}
+.button_type{
+    background-color: #FF9800;
+    border: white 3px solid;
+    height: 40px;
+    width: 25%;
+    border-radius: 6px;
+    font-size: large;
+    font-weight: bolder;
+    color: rgba(91, 96, 134, 0.85);
+    margin-left: 37%;
+}
+.loginInput{
+	height: 33px;
+    width: 76%;
+    border-radius: 6px;
+    text-align: left;
+}
+
+.loginInput_pass{
+	text-align: left;
+    height: 33px;
+    width: 76%;
+    border-radius: 6px;
+    margin-left: 5%;
+}
+.loginInput_title_div{
+	text-align: center;
+    margin-left: 0%;
+    height: 70px;
+    font-size: 23px;
+}
+

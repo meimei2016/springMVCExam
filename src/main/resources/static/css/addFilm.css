@@ -1,0 +1,57 @@
+.contextDiv{
+    font-size: 25px;
+    font-weight: 800;
+	
+}
+.link{
+	color: white;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: #929280;
+}
+
+.goBack{
+	text-align: right;
+    float: right;
+    margin-right: 10%;
+    font-size: 30px;
+}
+.loginInput_div{
+	display: inline-block;
+    height: 40px;
+    margin-bottom: 50px;
+    margin-left: 15%;
+    width: 90%;
+    text-align: left;
+}
+.button_type{
+    background-color: #FF9800;
+    border: white 3px solid;
+    height: 55px;
+    width: 25%;
+    border-radius: 6px;
+    font-size: large;
+    font-weight: bolder;
+    color: rgba(91, 96, 134, 0.85);
+    margin-left: 25%;
+}
+.loginInput{
+	height: 33px;
+    width: 76%;
+    border-radius: 6px;
+    text-align: left;
+}
+
+.loginInput_pass{
+	text-align: left;
+    height: 33px;
+    width: 76%;
+    border-radius: 6px;
+    margin-left: 5%;
+}
+.loginInput_title_div{
+	text-align: center;
+    margin-left: 0%;
+    height: 70px;
+    font-size: 23px;
+}
