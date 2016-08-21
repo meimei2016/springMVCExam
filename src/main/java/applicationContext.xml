@@ -77,17 +77,19 @@
 	
 	<bean id="filmsManageDao" class="com.hand.springMVCExam.jdbc.mybatis.daoImpl.FilmsManageDaoImpl" parent="BaseDao">
 	</bean>
+	
 	<bean id="addressDao" class="com.hand.springMVCExam.jdbc.mybatis.daoImpl.AddressDaoImpl" parent="BaseDao">
 	</bean>
+	
 	<bean id="customerLoginService" class="com.hand.springMVCExam.service.serviceImpl.CustomerLoginServiceImpl">
 	</bean>
-
+	
 	<bean id="filmsManageService" class="com.hand.springMVCExam.service.serviceImpl.FilmManageServiceImpl">
-		
 	</bean>
-
+	
 	<bean id="languageManageService" class="com.hand.springMVCExam.service.serviceImpl.LanguageManageServiceImpl">
 	</bean>
+	
 	<bean id="addressManageService" class="com.hand.springMVCExam.service.serviceImpl.AddressManageServiceImpl">
 	</bean>
 </beans>
