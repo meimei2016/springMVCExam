@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+.top{
+	font-size: 20px;
+    height: 33px;
+    padding: 3px 0;
+    background-color: #15c0dc
+}
+.topLeft{
+    display: inline-block;
+}
+.topRight{
+	display: inline-block;
+    float: right;
+    margin-right: 30px;	
+}

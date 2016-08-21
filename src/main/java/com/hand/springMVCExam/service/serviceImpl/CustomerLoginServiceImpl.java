@@ -40,5 +40,10 @@ public class CustomerLoginServiceImpl implements CustomerLoginService{
 		List<Customer> list=customerLoginDao.getCustomerPagination(p);
 		return list;
 	}
+	@Override
+	public int editCustomerById(Customer customer) {
+		int result=customerLoginDao.editCustomerById(customer);
+		return result;
+	}
 	
 }

@@ -53,4 +53,11 @@ public class CustomerLoginDaoImpl extends SqlSessionDaoSupport implements Custom
 		int i=getSqlSession().delete(className+sqlId, customer_id);
 		return i;
 	}
+
+	@Override
+	public int editCustomerById(Customer customer) {
+		String sqlId=".editCustomerById";
+		int result=getSqlSession().update(className+sqlId, customer);
+		return result;
+	}
 }

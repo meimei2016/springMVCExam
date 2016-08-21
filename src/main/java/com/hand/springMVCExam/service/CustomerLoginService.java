@@ -11,4 +11,5 @@ public interface CustomerLoginService {
 	public int deleteCustomerById(int customerId);
 	public List<Customer> getAllCustomer();
 	public List<Customer> getCustomerPagination(Pagination p);
+	public int editCustomerById(Customer customer);
 }

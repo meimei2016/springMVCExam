@@ -32,10 +32,6 @@
 	  <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:suffix=".jsp">
 	  </bean>
 	  <mvc:interceptors>
-	  	<mvc:interceptor>
-	  		<mvc:mapping path="/login"/>
-	  		<bean class="com.hand.springMVCExam.interceptor.CustomerInterceptor">
-	  		</bean>
-	  	</mvc:interceptor>
+	  	<bean class="com.hand.springMVCExam.interceptor.CustomerInterceptor"/>
 	  </mvc:interceptors>
   </beans>

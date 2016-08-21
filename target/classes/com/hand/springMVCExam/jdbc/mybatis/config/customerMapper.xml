@@ -11,7 +11,7 @@
 	</resultMap>
 	<select id="getUserByName" resultType="int">
 		<![CDATA[
-			select count(customer_id) from customer where first_name=LOWER(#{firstName})
+			select count(customer_id) from customer where first_name=#{firstName}
 		]]>
 	</select>
 	
@@ -52,4 +52,14 @@
  			delete from rental where customer_id=#{customer_id}
  		]]>
  	</delete>
+ 	<update id="editCustomerById" parameterType="Customer">
+ 		<![CDATA[
+ 			update customer set 
+ 				first_name=${first_name},
+ 				last_name=${last_name},
+ 				email=${email},
+ 				address_id=${address_id}
+ 			where customer_id=#{customer_id}
+ 		]]>
+ 	</update>
 </mapper>

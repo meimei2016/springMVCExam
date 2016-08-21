@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="com.hand.springWebProj.common.Constants" %>
+<%@page import="com.hand.springMVCExam.common.Constants" %>
 <!DOCTYPE HTML >
 <html>
   <head>   	   
@@ -20,7 +20,9 @@
 	 		}if(password){
 	 			alert("userName is required");
 	 		}else{
-	 			loginform.submit();
+	 			if(confirm("确定提交吗")){
+          			loginform.submit();
+			     }
 	 		}	 		
 	 	}	 	
 	</script>

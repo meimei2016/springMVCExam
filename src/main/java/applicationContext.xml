@@ -22,7 +22,7 @@
   http://www.springframework.org/schema/tx 
   http://www.springframework.org/schema/tx/spring-tx-4.2.xsd"
 	default-autowire="byType">
-	<context:component-scan base-package="com.hand.springWebProj" />
+	<context:component-scan base-package="com.hand.springMVCExam" />
 	<!-- 获取property文件 -->
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -54,7 +54,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
 		<property name="typeAliasesPackage" value="com.hand.springMVCExam.bean"/>
-		<property name="mapperLocations" value="classpath:com/hand/springWebProj/jdbc/mybatis/config/*Mapper.xml" />
+		<property name="mapperLocations" value="classpath:com/hand/springMVCExam/jdbc/mybatis/config/*Mapper.xml" />
 	</bean>
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory"/>
@@ -77,7 +77,8 @@
 	
 	<bean id="filmsManageDao" class="com.hand.springMVCExam.jdbc.mybatis.daoImpl.FilmsManageDaoImpl" parent="BaseDao">
 	</bean>
-	
+	<bean id="addressDao" class="com.hand.springMVCExam.jdbc.mybatis.daoImpl.AddressDaoImpl" parent="BaseDao">
+	</bean>
 	<bean id="customerLoginService" class="com.hand.springMVCExam.service.serviceImpl.CustomerLoginServiceImpl">
 	</bean>
 
@@ -86,5 +87,7 @@
 	</bean>
 
 	<bean id="languageManageService" class="com.hand.springMVCExam.service.serviceImpl.LanguageManageServiceImpl">
+	</bean>
+	<bean id="addressManageService" class="com.hand.springMVCExam.service.serviceImpl.AddressManageServiceImpl">
 	</bean>
 </beans>

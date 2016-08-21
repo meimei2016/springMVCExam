@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mappers>
+<select id="getAllAddress" resultType="Address">
+	<![CDATA[
+			select * from address
+		]]>
+</select>
+<select id="getAddressId"  resultType="int">
+	<![CDATA[
+			select address_id from address where address=#{address}
+		]]>
+</select>
+
+</mappers>

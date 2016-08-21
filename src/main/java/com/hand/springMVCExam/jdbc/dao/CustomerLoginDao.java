@@ -11,4 +11,5 @@ public interface CustomerLoginDao {
 	public List<Customer> getAllCustomer();
 	public int addCustomer(Customer customer);
 	public int deleteCustomerById(int customer_id);
+	public int editCustomerById(Customer customer);
 }

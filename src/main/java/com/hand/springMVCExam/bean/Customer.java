@@ -49,6 +49,7 @@ public class Customer {
 		this.create_date = create_date;
 		this.address = address;
 	}
+
 	public int getCustomer_id() {
 		return customer_id;
 	}

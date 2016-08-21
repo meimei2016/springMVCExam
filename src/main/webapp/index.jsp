@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.hand.springWebProj.common.Constants" %>
+<%@ page import="com.hand.springMVCExam.common.Constants" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML>
 <html>
@@ -13,17 +13,10 @@
 	<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="static/css/index.css">
 	<script type="text/javascript">
-	 	function login(){
-	 		var loginform=document.getElementById("login_Form");
-	 		var name=document.getElementsByName("userName").value;
-	 		var pass=document.getElementsByName("password").value;
-	 		if(name){
-	 			alert("userName is required");
-	 		}else if(pass){
-	 			alert("password is required");
-	 		}else{
-	 			loginform.submit();
-	 		}	 		
+	 	function deleteCustomer(){
+	 		if(confirm("确定删除吗？")){
+	 		location.href="deleteCustomer?customer_id=${customer.customer_id}";
+	 		}	
 	 	}	 	
 	</script>
   </head>  
@@ -34,7 +27,7 @@
 			    <span class="glyphicon glyphicon-asterisk">10909冉龙梅</span>
 			</div>
 			<div class="topRight">
-			    <span class="glyphicon glyphicon-user">${userName}</span>
+			    <span class="glyphicon glyphicon-user"><%=request.getSession().getAttribute("userName") %></span>
 			</div>
 	  	</div>	  
 		<div class="left">		
@@ -62,7 +55,7 @@
 			<div class="rightmain">
 				<div >
 				<p>客户列表</p>
-				<div class="create"><a href="#">新建</a></div>
+				<div class="create"><a href="toAddCustomer">新建</a></div>
 			</div>
 				<form>
 					<div class="rightmainHead">
@@ -73,7 +66,7 @@
 						</tr>
 						<c:forEach var ="customer" items="${customerList}">
 							<tr>
-								<td><a href="editCustomer?${customer.customer_id}"></a>|<a href="deleteCustomer?${customer.customer_id}"></a></td>
+								<td><a href="toEditCustomer?customer_id=${customer.customer_id}">编辑</a>|<a href="#" onclick="deleteCustomer()">删除</a></td>
 								<td>${customer.first_name}</td>
 								<td>${customer.last_name}</td>
 								<td>${customer.address}</td>
@@ -88,9 +81,9 @@
 						  <ul class="pagination">
 						    <li>
 						      <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-    						<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-
-						    <li class="disabled"><a href="#">2</a></li>
+    						<%for(int i=1;i<=(int)request.getAttribute("totalPage");i++){%>
+    						<li class="active"><a href="showCustomer?currentPage=<%=i%>"><%=i%><span class="sr-only">(current)</span></a></li>
+							<% }%>						    
 						    <li class="disabled">
 						      <a href="#" aria-label="Next">
 						        <span aria-hidden="true">&raquo;</span>
@@ -102,22 +95,6 @@
 				</form>
 			</div>
 		</div>
-	
-  		<!-- <div class="Index_href_div">
-  			<a class="index_href" href="gotoLogin">Go to Login</a>
-  		</div>
-  		<div class="Index_href_div">
-  			<a class="index_href" href="toAddFilm">Add Film</a>
-  		</div>
-  		<div class="Index_href_div">
-  			<a class="index_href" href="toDeleteFilm">Delete Film</a>
-  		</div>
-  		<div class="Index_href_div">
-  			<a class="index_href" href="toEditFilm">Edit Film</a>
-  		</div> 		
-  		<div class="Index_href_div">
-  		<a class="index_href" href="showFilm">Query Film</a>
-  		</div> -->
   	</div> 
   </body>
 </html>

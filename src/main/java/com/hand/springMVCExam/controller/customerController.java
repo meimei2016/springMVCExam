@@ -14,15 +14,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.hand.springMVCExam.bean.Address;
 import com.hand.springMVCExam.bean.Customer;
 import com.hand.springMVCExam.bean.Pagination;
 import com.hand.springMVCExam.common.Constants;
+import com.hand.springMVCExam.service.AddressManageService;
 import com.hand.springMVCExam.service.CustomerLoginService;
 
 @Controller
 public class customerController {
 	@Autowired
 	CustomerLoginService customerService;
+	@Autowired
+	AddressManageService addressManageService;
 	
 	@RequestMapping(value="/login",method={RequestMethod.POST,RequestMethod.GET})
 	public ModelAndView customerLogin(HttpServletRequest request,
@@ -49,10 +53,28 @@ public class customerController {
 		return modelAndView;
 	}
 	
+	@RequestMapping(value="/toEditCustomer",method={RequestMethod.POST,RequestMethod.GET})
+	public ModelAndView toEditCustomer(@RequestParam(value="customer_id", defaultValue="0") int customer_id){
+		ModelAndView modelAndView=new ModelAndView();
+		List<Address> addressList=addressManageService.getAllAddress();
+		modelAndView.addObject("customer_id",customer_id);
+		modelAndView.addObject("addressList",addressList);
+		modelAndView.setViewName("addCustomer");		
+		return modelAndView;
+	}
+	
 	@RequestMapping(value="/addCustomer",method={RequestMethod.POST,RequestMethod.GET})
 	public ModelAndView addCustomer(@ModelAttribute("Customer")Customer customer){
 		ModelAndView modelAndView=new ModelAndView();
-		customerService.addCustomer(customer);
+		int addressId=addressManageService.getAddressId(customer.getAddress());
+		customer.setAddress_id(addressId);
+		if(customer.getCustomer_id()!=0){
+			customerService.editCustomerById(customer);
+		}else{
+			customerService.addCustomer(customer);
+		}
+		
+		
 		modelAndView.setView(new RedirectView("showCustomer"));
 		return modelAndView;
 	}
@@ -70,6 +92,7 @@ public class customerController {
 		}
 		List<Customer> customerList=customerService.getCustomerPagination(p);
 		modelAndView.addObject("customerList",customerList);
+		modelAndView.addObject("totalPage", totalPage);
 		modelAndView.setViewName("index");
 		return modelAndView;
 	}
