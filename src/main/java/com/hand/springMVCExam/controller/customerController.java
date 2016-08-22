@@ -47,8 +47,10 @@ public class customerController {
 	}
 	
 	@RequestMapping(value="/toAddCustomer",method={RequestMethod.POST,RequestMethod.GET})
-	public ModelAndView addCustomer(){
+	public ModelAndView toAddCustomer(){
 		ModelAndView modelAndView=new ModelAndView();
+		List<Address> addressList=addressManageService.getAllAddress();
+		modelAndView.addObject("addressList",addressList);
 		modelAndView.setViewName("addCustomer");
 		return modelAndView;
 	}
@@ -64,7 +66,18 @@ public class customerController {
 	}
 	
 	@RequestMapping(value="/addCustomer",method={RequestMethod.POST,RequestMethod.GET})
-	public ModelAndView addCustomer(@ModelAttribute("Customer")Customer customer){
+	public ModelAndView addCustomer(
+			@RequestParam(value="customer_id",  defaultValue="0") int customer_id,
+			@RequestParam(value="last_name",  defaultValue="") String last_name,
+			@RequestParam(value="first_name",  defaultValue="") String first_name,
+			@RequestParam(value="email",  defaultValue="") String email,
+			@RequestParam(value="address",  defaultValue="") String address
+			){
+		Customer customer =new Customer();
+		customer.setAddress(address);
+		customer.setEmail(email);
+		customer.setFirst_name(first_name);
+		customer.setLast_name(last_name);
 		ModelAndView modelAndView=new ModelAndView();
 		int addressId=addressManageService.getAddressId(customer.getAddress());
 		customer.setAddress_id(addressId);
@@ -73,8 +86,6 @@ public class customerController {
 		}else{
 			customerLoginService.addCustomer(customer);
 		}
-		
-		
 		modelAndView.setView(new RedirectView("showCustomer"));
 		return modelAndView;
 	}

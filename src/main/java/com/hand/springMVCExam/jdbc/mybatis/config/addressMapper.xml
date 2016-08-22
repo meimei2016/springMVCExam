@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hand.springMVCExam.bean.Address">
-<select id="getAllAddress" resultType="Address">
+<resultMap type="Address" id="queryAddress">
+	<id column="address_id" property="address_id"/>
+	<result column="address" property="address"/>
+</resultMap>
+<select id="getAllAddress" resultType="Address"><!-- resultMap="queryAddress"> -->
 	<![CDATA[
-			select * from address
+			select address_id, address from address
 		]]>
 </select>
 <select id="getAddressId"  resultType="int">

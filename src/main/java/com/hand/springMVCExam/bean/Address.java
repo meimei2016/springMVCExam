@@ -1,7 +1,6 @@
 package com.hand.springMVCExam.bean;
 
 import java.util.Date;
-//...................
 public class Address {
 	private int address_id;
 	private String address;
@@ -59,6 +58,9 @@ public class Address {
 	public void setLast_update(Date last_update) {
 		this.last_update = last_update;
 	}
+	public Address(){
+		super();
+	}
 	public Address(String address, String address2, String district,
 			int ciry_id, String postal_code, String phone, Date last_update) {
 		super();
@@ -69,6 +71,24 @@ public class Address {
 		this.postal_code = postal_code;
 		this.phone = phone;
 		this.last_update = last_update;
+	}
+	public Address(int address_id, String address, String address2,
+			String district, int ciry_id, String postal_code, String phone,
+			Date last_update) {
+		super();
+		this.address_id = address_id;
+		this.address = address;
+		this.address2 = address2;
+		this.district = district;
+		this.ciry_id = ciry_id;
+		this.postal_code = postal_code;
+		this.phone = phone;
+		this.last_update = last_update;
+	}
+	public Address(int address_id, String address) {
+		super();
+		this.address_id = address_id;
+		this.address = address;
 	}
 	
 	

@@ -13,19 +13,23 @@
 	<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="static/css/index.css">
 	<script type="text/javascript">
-	 	function addCustomer(){
+	 	function addNewCustomer(){
 	 		var addCustomerForm=document.getElementById("addCustomerForm");
-	 		var first_ame=document.getElementsByName("first_ame").value;
+	 		var first_name=document.getElementsByName("first_name").value;
 	 		var last_name=document.getElementsByName("last_name").value;
 	 		var customer_id=document.getElementsByName("customer_id").value;
 	 		var email=document.getElementsByName("email").value;
 	 		var address=document.getElementsByName("address").value;
-	 		if(first_ame){
-	 			alert("first_ame is required");
+	 		if(first_name){
+	 			alert("first_name is required");
 	 		}else if(last_name){
 	 			alert("last_name is required");
 	 		}else if(address){
 	 			alert("address is required");
+	 		}else if(customer_id){
+	 			document.getElementsByName("customer_id").value=0;
+	 		}else if(email){
+	 			email="";
 	 		}else{
 	 		if(confirm("确定提交吗")){
 	 			addCustomerForm.submit();
@@ -137,7 +141,7 @@
 					</div>
 					 <div class="form-group">
 					    <div class="col-sm-offset-2 col-sm-10">
-					      <button type="button" class="btn btn-default" onclick="addCustomer()">新建</button>
+					      <button type="button" class="btn btn-default" onclick="addNewCustomer()">新建</button>
 					      <button type="reset" class="btn btn-default" >重置</button>
 					    </div>
 					 </div>

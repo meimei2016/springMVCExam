@@ -80,12 +80,11 @@
 						<nav>
 						  <ul class="pagination">
 						      <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-    						<c:forEach var ="customer" items="${customerList}" varStatus="status">
-  						
-    						<li class="disabled" id="li${ status.index + 1}"><a href="showCustomer?currentPage=${ status.index + 1}">${ status.index + 1}<span class="sr-only">(current)</span></a></li>
-							</c:forEach>
+  							<%for(int i=1;i<=(int)request.getAttribute("totalPage");i++){ %>
+    						<li class="disabled" id="li<%=i%>"><a href="showCustomer?currentPage=<%=i%>"><%=i%><span class="sr-only">(current)</span></a></li>
+							<%} %>
 							<script type="text/javascript">
-								doucument.getElementById("li1").class="active";
+								doucument.getElementById("li1").type="active";
 							</script>					    
 						    <li class="disabled">
 						      <a href="#" aria-label="Next">

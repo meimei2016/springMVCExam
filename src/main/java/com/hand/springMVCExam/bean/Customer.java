@@ -57,6 +57,15 @@ public class Customer {
 		this.address = address;
 		this.last_update=last_update;
 	}
+	public Customer(int customer_id, String first_name, String last_name,
+			String email,String address) {
+		super();
+		this.customer_id = customer_id;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.email = email;
+		this.address = address;
+	}
 
 	public int getCustomer_id() {
 		return customer_id;
