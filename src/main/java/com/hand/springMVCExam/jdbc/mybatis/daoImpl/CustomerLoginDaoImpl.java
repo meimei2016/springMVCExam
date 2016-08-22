@@ -20,13 +20,13 @@ public class CustomerLoginDaoImpl extends SqlSessionDaoSupport implements Custom
 
 	public List<Customer> getCustomerPagination(Pagination p) {
 		String sqlId=".getCustomerPagination";
-		RowBounds rowBounds=new RowBounds(p.getBeginIndex(),p.getEndIndex());
+		RowBounds rowBounds=new RowBounds(p.getBeginIndex(),p.getPageSize());
 		List<Customer> result=getSqlSession().selectList(className+sqlId, rowBounds);
 		return result;
 	}
 	public List<Customer> getAllCustomer() {
 		String sqlId=".getAllCustomer";
-		List<Customer> result=getSqlSession().selectOne(className+sqlId);
+		List<Customer> result=getSqlSession().selectList(className+sqlId);
 		return result;
 	}
 	public int addCustomer(Customer customer) {

@@ -13,7 +13,14 @@ public class Customer {
 	private Date create_date;
 	private Date last_date;
 	private String address;
+	private Date last_update;
 		
+	public Date getLast_update() {
+		return last_update;
+	}
+	public void setLast_update(Date last_update) {
+		this.last_update = last_update;
+	}
 	public String getAddress() {
 		return address;
 	}
@@ -40,14 +47,15 @@ public class Customer {
 	
 	
 	public Customer(int customer_id, String first_name, String last_name,
-			String email, Date create_date, String address) {
+			String email, Date last_update,String address) {
 		super();
 		this.customer_id = customer_id;
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.email = email;
-		this.create_date = create_date;
+		//this.create_date = create_date;
 		this.address = address;
+		this.last_update=last_update;
 	}
 
 	public int getCustomer_id() {

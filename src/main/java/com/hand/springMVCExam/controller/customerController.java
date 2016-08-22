@@ -24,7 +24,7 @@ import com.hand.springMVCExam.service.CustomerLoginService;
 @Controller
 public class customerController {
 	@Autowired
-	CustomerLoginService customerService;
+	CustomerLoginService customerLoginService;
 	@Autowired
 	AddressManageService addressManageService;
 	
@@ -33,7 +33,7 @@ public class customerController {
 			@RequestParam(value="userName", defaultValue="") String userName,
 			@RequestParam(value="password", defaultValue="") String password)
 			{
-		int count=customerService.getUserName(userName);
+		int count=customerLoginService.getUserName(userName);
 		ModelAndView modelAndView=new ModelAndView();
 		if(count>0&&(!password.isEmpty())){
 			HttpSession session =request.getSession();
@@ -69,9 +69,9 @@ public class customerController {
 		int addressId=addressManageService.getAddressId(customer.getAddress());
 		customer.setAddress_id(addressId);
 		if(customer.getCustomer_id()!=0){
-			customerService.editCustomerById(customer);
+			customerLoginService.editCustomerById(customer);
 		}else{
-			customerService.addCustomer(customer);
+			customerLoginService.addCustomer(customer);
 		}
 		
 		
@@ -80,17 +80,17 @@ public class customerController {
 	}
 	
 	@RequestMapping(value="/showCustomer",method={RequestMethod.POST,RequestMethod.GET})
-	public ModelAndView getCustomerByPagination(@RequestParam(value="currentPage", defaultValue="0") int currentPage){
+	public ModelAndView getCustomerByPagination(@RequestParam(value="currentPage", defaultValue="1") int currentPage){
 		ModelAndView modelAndView=new ModelAndView();
 		Pagination p =new Pagination();
-		int totalPage=(int)Math.ceil(customerService.getAllCustomer().size()/p.getPageSize());
+		int totalPage=(int)Math.ceil(customerLoginService.getAllCustomer().size()/p.getPageSize());
 		p.setTotalPage(totalPage);
 		if((currentPage>=1)&&(currentPage<=totalPage)){
 			p.setCurrentPage(currentPage);
 			p.setBeginIndex((currentPage-1)*p.getPageSize());
 			p.setEndIndex(currentPage*p.getPageSize());
 		}
-		List<Customer> customerList=customerService.getCustomerPagination(p);
+		List<Customer> customerList=customerLoginService.getCustomerPagination(p);
 		modelAndView.addObject("customerList",customerList);
 		modelAndView.addObject("totalPage", totalPage);
 		modelAndView.setViewName("index");
@@ -100,7 +100,7 @@ public class customerController {
 	@RequestMapping(value="/deleteCustomer",method={RequestMethod.POST,RequestMethod.GET})
 	public ModelAndView deleteCustomer(@RequestParam(value="customer_id", defaultValue="0") int customer_id){
 		ModelAndView modelAndView=new ModelAndView();
-		customerService.deleteCustomerById(customer_id);
+		customerLoginService.deleteCustomerById(customer_id);
 		modelAndView.setView(new RedirectView("showCustomer"));
 		return modelAndView;
 	}
